@@ -1,0 +1,187 @@
+@import '../../styles/variables';
+
+.header{
+    background-color: #f3f3f3;
+    padding: 40px 0;
+    position: sticky;
+    z-index: 100
+}
+
+.nav{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.05px;
+    &Wrap{
+        display: inline-flex;
+        padding-right: 20px;
+    }
+}
+
+.search{
+    width: 40%;
+    height: 50px;
+    background-color: $grey;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    &Input{
+        background: none;
+        border: none;
+        outline: none;
+        height: 50px;
+        width: calc(100% - 85px);
+        padding: 0 15px;
+    }
+    &Button{
+        width: 80px;
+        background-color: $primaryColor;
+        color: $white;
+        border: none;
+        height: 45px;
+        border-radius: 5px;
+        margin-right: 2.5px;
+    }
+    &Loading{
+        opacity: 0.2;
+    }
+    &Active{
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    &Result{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: $grey;
+        &List{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            &Item{
+                border-bottom: 1px solid $lightGrey;
+                &Link{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 5px 10px;
+                    figure{
+                        width: 50px;
+                        height: 50px;
+                        overflow: hidden;
+                        margin: 0;
+                        font-size: 0;
+                        border-radius: 5px;
+                        background-color: $white;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                    div{
+                        width: calc(100% - 60px);
+                        display: flex;
+                        flex-direction: column;
+                        span{
+                            font-size: 16px;
+                            font-weight: 500;
+                        }
+                        em{
+                            font-style: normal;
+                            font-size: 14px;
+                            font-weight: 400;
+                        }
+                    }
+                    &:hover{
+                        background-color: $primaryColor;
+                        div{
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &Overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.12);
+        opacity: 0.6;
+    }
+}
+.menu{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    &Item{
+        &Link{
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: $primaryColor;
+            transition: all .2s ease-in-out;
+            &:hover{
+                background-color: $darkPrimaryColor;
+                color: $white;
+            }
+            &Active{
+                background-color: $darkPrimaryColor;
+                color: $white;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .header{
+        padding: 10px 0;
+    }
+    .nav{
+        flex-wrap: wrap;
+    }
+    .logo{
+        font-size: 20px;
+        &Wrap{
+            order: 1;
+            width: 50%;
+        }
+    }
+    .search{
+        order: 3;
+        width: 100%;
+        margin-top: 15px;
+        &Result{
+            &List{
+                overflow: auto;
+                max-height: 60vh;
+            }
+        }
+    }
+    .menu{
+        width: 50%;
+        order: 2;
+    }
+}

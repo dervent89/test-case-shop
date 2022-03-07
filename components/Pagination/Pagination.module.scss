@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.pagination{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+    &Item{
+        margin: 2px;
+        a{
+            background-color: $lightGrey;
+            color: $primaryColor;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            &:hover{
+                background-color: $grey;
+            }
+        }
+        &Active{
+            a{
+                background-color: $primaryColor;
+                color: $white;
+                pointer-events: none;
+            }
+        }
+    }
+}
